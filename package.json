@@ -1,13 +1,13 @@
 {
   "name": "eslint-plugin-no-chinese-compare",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "a eslint plugin",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["eslint-plugin"],
-  "author": "srq18211",
+  "author": "xinzejy",
   "license": "MIT",
   "repository":{
     "type":"git",
