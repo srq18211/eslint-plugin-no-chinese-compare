@@ -1,0 +1,1 @@
+# A plugin to restrict the rvalue of the comparison operator
