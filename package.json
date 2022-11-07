@@ -1,6 +1,6 @@
 {
-  "name": "eslint-plugin-no-chinese-compare",
-  "version": "0.0.1",
+  "name": "eslint-plugin-no-chinese",
+  "version": "0.0.2",
   "description": "a eslint plugin",
   "main": "index.js",
   "scripts": {

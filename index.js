@@ -1,17 +1,19 @@
 module.exports = {
     rules: {
-        "no-chinese-compare": {
+        "to-compare": {
+            meta: {
+                docs: {
+                    description: '比较运算符的右值不能是中文'
+                }
+            },
             create: function (context) {
                 return {
                     BinaryExpression(node) {
-                        if (/[\u4e00-\u9fa5]/g.test(node.right.value)){
+                        if(node.operator === '=') return
+                        if (/[\u4e00-\u9fa5]/g.test(node.right.value)) {
                             context.report({
                                 node,
-                                messageId:"avoidName",
-                                message:'fuck',
-                                data:{
-                                    name:"foo"
-                                }
+                                message: '比较运算符的右值不能是中文'
                             })
                         }
                     }
