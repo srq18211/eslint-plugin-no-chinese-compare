@@ -1,10 +1,10 @@
 {
   "name": "eslint-plugin-no-chinese-compare",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "a eslint plugin",
   "main": "index.js",
   "scripts": {
-    "deploy": "deploy.sh"
+    "postpublish": "deploy.sh"
   },
   "keywords": ["eslint-plugin"],
   "author": "xinzejy",
