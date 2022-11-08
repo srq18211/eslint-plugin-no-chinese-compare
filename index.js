@@ -1,22 +1,31 @@
 module.exports = {
-    rules: {
-        "no-chinese-compare": {
-            create: function (context) {
-                return {
-                    BinaryExpression(node) {
-                        if (/[\u4e00-\u9fa5]/g.test(node.right.value)){
-                            context.report({
-                                node,
-                                messageId:"avoidName",
-                                message:'fuck',
-                                data:{
-                                    name:"foo"
-                                }
-                            })
-                        }
-                    }
-                }
+  rules: {
+    "to-compare": {
+      meta: {
+        docs: {
+          description:
+            "The rvalue of the comparison operator cannot be Chinese",
+        },
+      },
+      create: function (context) {
+        return {
+          BinaryExpression(node) {
+            if (node.operator === "=") return;
+            if (
+              [">", ">=", "<", "<=", "==", "!=", "===", "!=="].includes(
+                node.operator
+              ) &&
+              /[\u4e00-\u9fa5]/g.test(node.right.value)
+            ) {
+              context.report({
+                node: node.right,
+                message:
+                  "The rvalue of the comparison operator cannot be Chinese",
+              });
             }
-        }
-    }
+          },
+        };
+      },
+    },
+  },
 };
